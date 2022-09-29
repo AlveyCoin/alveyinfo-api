@@ -3,7 +3,7 @@ const {Service} = require('egg')
 class MiscService extends Service {
   async classify(id) {
     const db = this.ctx.model
-    const {Block, Transaction, Contract, Qrc20: ARC20, where, fn, literal} = db
+    const {Block, Transaction, Contract, Arc20: ARC20, where, fn, literal} = db
     const {or: $or, like: $like} = this.app.Sequelize.Op
     const {Address} = this.app.alveyinfo.lib
     const {sql} = this.ctx.helper

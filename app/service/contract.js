@@ -34,7 +34,7 @@ class ContractService extends Service {
   }
 
   async getContractSummary(contractAddress, addressIds) {
-    const {Contract, Qrc20: ARC20, Qrc20Statistics: ARC20Statistics, Qrc721: ARC721} = this.ctx.model
+    const {Contract, Arc20: ARC20, Arc20Statistics: ARC20Statistics, Qrc721: ARC721} = this.ctx.model
     const {balance: balanceService, arc20: arc20Service, arc721: arc721Service} = this.ctx.service
     let contract = await Contract.findOne({
       where: {address: contractAddress},

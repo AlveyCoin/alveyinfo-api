@@ -6,7 +6,7 @@ class TransactionService extends Service {
       Header, Address,
       Transaction, Witness, TransactionOutput, TransactionInput, GasRefund,
       EvmReceipt: EVMReceipt, EvmReceiptLog: EVMReceiptLog, ContractSpend,
-      Contract, Qrc20: ARC20, Qrc721: ARC721,
+      Contract, Arc20: ARC20, Qrc721: ARC721,
       where, col
     } = this.ctx.model
     const {in: $in} = this.app.Sequelize.Op
@@ -707,7 +707,7 @@ class TransactionService extends Service {
   async transformARC20UnconfirmedTransfers(outputs) {
     const {OutputScript, Solidity} = this.app.alveyinfo.lib
     const transferABI = Solidity.arc20ABIs.find(abi => abi.name === 'transfer')
-    const {Qrc20: ARC20} = this.ctx.model
+    const {Arc20: ARC20} = this.ctx.model
     let result = []
     for (let output of outputs) {
       if (output.evmReceipt) {
